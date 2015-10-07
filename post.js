@@ -3,15 +3,15 @@ var request = require('request');
 var CONFIG = {
 	"webhook_url": "https://hooks.slack.com/services/someString",
 	"channel": "#general",
-	"bot_username": "HackerNewsBot",
-	"bot_icon_emoji": ":newspaper:",
+	"bot_username": "DomBot",
+	"bot_icon_emoji": ":cloud:",
 };
 
 selectAndPost();
 
 function selectAndPost() {
     // Choose a random URL pool, with bias towards top stories. 
-    var api_url = ["https://hacker-news.firebaseio.com/v0/topstories.json", "https://hacker-news.firebaseio.com/v0/newstories.json", "https://hacker-news.firebaseio.com/v0/showstories.json", "https://hacker-news.firebaseio.com/v0/topstories.json"];
+    var api_url = ["https://hacker-news.firebaseio.com/v0/newstories.json", "https://hacker-news.firebaseio.com/v0/showstories.json", "https://hacker-news.firebaseio.com/v0/topstories.json"];
     var api_url = api_url[Math.floor(Math.random() * api_url.length)];
 
     // Yo dawg, I heard you like callbacks. 
@@ -53,10 +53,6 @@ function postLink(title, link, score, author) {
             "fields": [{
                 "title": "Author",
                 "value": author,
-                "short": true
-            }, {
-                "title": "Score",
-                "value": score,
                 "short": true
             }]
         }]
