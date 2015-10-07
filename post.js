@@ -31,8 +31,9 @@ function selectAndPost() {
                 if (err) {
                     console.error("Hacker News Scraper failed to fetch " + url + "!");
                 } else {
-                    body = JSON.parse(body);
-                    postLink(body.title, body.url, body.score, body.by);
+                    body = JSON.parse(body, null, 2);
+                    console.log("You did it! Here's the post: \n" + body);
+                    //postLink(body.title, body.url, body.score, body.by);
                 }
             });
         }
